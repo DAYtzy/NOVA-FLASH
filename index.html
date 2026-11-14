@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOVA FLASH</title>
+<meta name="theme-color" content="#0095f6">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ---------- layar masuk/daftar ---------- -->
+<div id="authScreen" class="auth-wrap">
+  <div class="auth-card">
+    <h1>NOVA FLASH</h1>
+
+    <div id="loginForm">
+      <div class="err" id="loginErr"></div>
+      <input id="loginWho" placeholder="Email atau username" autocomplete="username">
+      <input id="loginPw" type="password" placeholder="Password" autocomplete="current-password">
+      <button class="primary" id="loginBtn">Masuk</button>
+      <div class="auth-switch">Belum punya akun? <b id="toRegister">Daftar</b></div>
+    </div>
+
+    <div id="registerForm" class="hidden">
+      <div class="err" id="regErr"></div>
+      <input id="regName" placeholder="Nama lengkap" maxlength="60">
+      <input id="regUsername" placeholder="Username (mis. budi_123)" maxlength="30">
+      <input id="regEmail" type="email" placeholder="Email" maxlength="120">
+      <div class="row2">
+        <input id="regYear" type="number" placeholder="Tahun lahir" min="1900">
+        <input id="regPw" type="password" placeholder="Password">
+      </div>
+      <label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);margin:6px 0">
+        <input type="checkbox" id="regAgree" style="width:auto"> Saya setuju dengan Syarat &amp; Kebijakan Privasi
+      </label>
+      <button class="primary" id="regBtn">Daftar</button>
+      <div class="auth-switch">Sudah punya akun? <b id="toLogin">Masuk</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- aplikasi utama ---------- -->
+<div id="app" class="hidden">
+  <div class="topbar">
+    <div class="brand">NOVA FLASH</div>
+    <div class="actions">
+      <button class="icon-btn" id="newPostBtn" title="Posting">➕</button>
+      <button class="icon-btn" id="profileBtn" title="Profil">👤</button>
+      <button class="icon-btn" id="logoutBtn" title="Keluar">↩</button>
+    </div>
+  </div>
+  <main id="view"></main>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<!-- ---------- modal posting baru ---------- -->
+<div id="newPostModal" class="modal-bg hidden">
+  <div class="modal">
+    <h2>Post baru</h2>
+    <div class="err" id="postErr"></div>
+    <input type="file" id="mediaInput" accept="image/png,image/jpeg,image/webp,video/mp4,video/webm">
+    <img id="mediaPreviewImg" class="preview hidden">
+    <video id="mediaPreviewVid" class="preview hidden" controls></video>
+    <textarea id="captionInput" placeholder="Tulis keterangan..." maxlength="2200"></textarea>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="cancelPostBtn">Batal</button>
+      <button class="btn-fill" id="submitPostBtn" disabled>Bagikan</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
